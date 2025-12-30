@@ -6,7 +6,6 @@ export const App = () => {
     <>
       <Header />
       <MainPage />
-      <p>web larek</p>
     </>
   );
 };

@@ -1,0 +1,22 @@
+.card {
+  background-color: var( --primary-color);
+  width: 324px;
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 20px;
+  cursor: pointer;
+}
+
+.cardImg {
+  align-self: center;
+  width: 240px;
+  height: 240px;
+}
+
+.cardPrice {
+  color: var(--main-text-color);
+}

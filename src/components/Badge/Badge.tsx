@@ -7,11 +7,10 @@ type variant = "category1" | "category2" | "category3" | "category4" | "category
 type TBadgeProps = {
   variant: variant;
   children: ReactNode;
-  className?: string;
 };
 
 export const Badge = (props: TBadgeProps) => {
-  const { variant, children, className } = props;
+  const { variant, children } = props;
 
-  return <span className={(clsx(styles.cardBadge, styles[variant]), className)}>{children}</span>;
+  return <span className={clsx(styles.cardBadge, styles[variant])}>{children}</span>;
 };
