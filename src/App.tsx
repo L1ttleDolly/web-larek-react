@@ -1,11 +1,7 @@
-
-function App() {
-
+export const App = () => {
   return (
     <>
       <p>web larek</p>
     </>
-  )
-}
-
-export default App
+  );
+};
