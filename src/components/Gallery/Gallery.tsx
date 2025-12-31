@@ -1,5 +1,7 @@
 import styles from "./gallery.module.scss";
 import { Card } from "../Card/Card.tsx";
+import { CardModal } from "../CardModal/CardModal.tsx";
+import { CardBasket } from "../CardBasket/CardBasket.tsx";
 
 type Props = {};
 export const Gallery = (props: Props) => {
@@ -9,12 +11,8 @@ export const Gallery = (props: Props) => {
     <section className={styles.container}>
       <Card />
       <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      <CardModal />
+      <CardBasket />
     </section>
   );
 };
