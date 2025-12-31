@@ -1,0 +1,37 @@
+.cardBasket{
+  background-color: plum;
+  width: 535px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 20px;
+  padding: 10px;
+
+}
+
+.cardIndex {
+  background-color: var(--primary-color);
+  padding: 5px 11px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.cardTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  width: 260px;
+  background-color: powderblue;
+
+}
+
+.cardPrice {
+background-color: #95b7e4;
+  width: 135px;
+}
+
+.deleteButton {
+  padding: 0 10px;
+}

@@ -9,6 +9,7 @@ export const Card = (props: TCardProps) => {
   return (
     <article className={styles.card}>
       <Badge variant={"category4"}>дополнительное</Badge>
+      <h2 className={styles.cardTitle}>HEX-леденец</h2>
 
       <img src="./mockCard.jpg" alt="" className={styles.cardImg} />
 
