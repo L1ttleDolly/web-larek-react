@@ -1,18 +1,15 @@
 import styles from "./gallery.module.scss";
 import { Card } from "../Card/Card.tsx";
-import { CardModal } from "../CardModal/CardModal.tsx";
-import { CardBasket } from "../CardBasket/CardBasket.tsx";
+import { useSelector } from "../../services/store.ts";
 
-type Props = {};
-export const Gallery = (props: Props) => {
-  const {} = props;
+export const Gallery = () => {
+  const cards = useSelector((state) => state.cards.cards);
 
   return (
     <section className={styles.container}>
-      <Card />
-      <Card />
-      <CardModal />
-      <CardBasket />
+      {cards.map((card) => {
+        return <Card key={card.id} card={card} />;
+      })}
     </section>
   );
 };
