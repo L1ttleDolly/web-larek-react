@@ -1,19 +1,28 @@
 import styles from "./card.module.scss";
 import { Badge } from "../Badge/Badge.tsx";
+import { categorySkills, type TBadgeVariant, type TProduct } from "../../types/types.ts";
 
-type TCardProps = {};
+interface ICardProps {
+  card: TProduct;
+}
 
-export const Card = (props: TCardProps) => {
-  const {} = props;
+type TCardProps = Omit<ICardProps, "description">;
+
+export const Card = (card: TCardProps) => {
+  const { title, price, category, image, id } = card.card;
+
+  console.log("exit", card);
+
+  const variant: TBadgeVariant = categorySkills[category];
 
   return (
     <article className={styles.card}>
-      <Badge variant={"category4"}>дополнительное</Badge>
-      <h2 className={styles.cardTitle}>HEX-леденец</h2>
+      <Badge variant={variant}>{category}</Badge>
+      <h2 className={styles.cardTitle}>{title}</h2>
 
-      <img src="./mockCard.jpg" alt="" className={styles.cardImg} />
+      <img src={image} alt="" className={styles.cardImg} />
 
-      <span className={styles.cardPrice}>750 синапсов</span>
+      <span className={styles.cardPrice}>{price === null ? "Бесценно" : `${price} синапсов`}</span>
     </article>
   );
 };

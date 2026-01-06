@@ -1,11 +1,10 @@
 import styles from "./badge.module.scss";
 import type { ReactNode } from "react";
 import clsx from "clsx";
-
-type variant = "category1" | "category2" | "category3" | "category4" | "category5";
+import type { TBadgeVariant } from "../../types/types.ts";
 
 type TBadgeProps = {
-  variant: variant;
+  variant: TBadgeVariant;
   children: ReactNode;
 };
 
