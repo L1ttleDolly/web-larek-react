@@ -2,14 +2,18 @@ import styles from "./modal.module.scss";
 import { createPortal } from "react-dom";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
-type TModalProps = React.ComponentProps<"dialog"> & {
+type TModalProps = {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
 };
 export const Modal = (props: TModalProps) => {
-  const { children, onClick, isOpen, onClose } = props;
+  const { children, isOpen, onClose } = props;
   const modalRef = useRef<HTMLDialogElement>(null);
+
+  const handleClickClose = () => {
+    modalRef.current?.close();
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -19,10 +23,11 @@ export const Modal = (props: TModalProps) => {
     }
   }, [isOpen]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const handleClick = (evt: PointerEvent) => {
       if (evt.target === modalRef.current) {
         modalRef.current?.close();
+        console.log("click");
       }
     };
     window.addEventListener("click", handleClick);
@@ -30,12 +35,21 @@ export const Modal = (props: TModalProps) => {
     return () => {
       window.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, []);*/
+
+  const handleClickOut = (e: React.MouseEvent<HTMLDialogElement>) => {
+    if (e.target === modalRef.current) {
+      modalRef.current?.close();
+    }
+  };
 
   const container = document.getElementById("modal");
   if (!container) return null;
   return createPortal(
-    <dialog onClick={onClick} ref={modalRef} onClose={onClose}>
+    <dialog ref={modalRef} onClose={onClose} className={styles.modal} onClick={handleClickOut}>
+      <button onClick={handleClickClose} className={styles.button}>
+        X
+      </button>
       {children}
     </dialog>,
     container,

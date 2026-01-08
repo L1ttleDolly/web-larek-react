@@ -23,7 +23,6 @@ export const Card = (props: TCardProps) => {
 
   return isOpen ? (
     <Modal isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
-      <button onClick={() => setIsOpen(!isOpen)}>X</button>
       <CardModal title={title} price={price} category={category} image={image} id={id} description={description} />
     </Modal>
   ) : (

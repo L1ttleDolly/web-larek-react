@@ -7,6 +7,7 @@ type Props = {};
 export const Header = (props: Props) => {
   const {} = props;
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <header className={styles.header}>
@@ -24,14 +25,15 @@ export const Header = (props: Props) => {
       {isOpen && (
         <Modal isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
           {
-            <>
-              <button onClick={() => setIsOpen(!isOpen)}>X</button>
-              <h3>Корзина</h3>
-              <p>Корзина пуста</p>
+            <div className={styles.basketContainer}>
+              <h3 className={styles.basketTitle}>Корзина</h3>
+              <p className={styles.basketSubTitle}>Корзина пуста</p>
               <div></div>
-              <button>оформить</button>
-              <span>0 синапсов</span>
-            </>
+              <div>
+                <button className={styles.basketButton}>оформить</button>
+                <span className={styles.basketPrice}>0 синапсов</span>
+              </div>
+            </div>
           }
         </Modal>
       )}

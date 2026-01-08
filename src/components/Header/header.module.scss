@@ -38,5 +38,31 @@
     background-color: $category1;
     border-radius: 50%;
   }
-
 }
+
+.basketContainer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 30px;
+  width: 100%;
+  padding: 25px;
+  .basketTitle {
+
+  }
+
+  .basketSubTitle {
+
+  }
+
+  .basketButton {
+
+  }
+
+  .basketPrice {
+
+  }
+}
+
