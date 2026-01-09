@@ -1,9 +1,6 @@
 import styles from "./cardBasket.module.scss";
 
-type TCardBasketProps = {};
-export const CardBasket = (props: TCardBasketProps) => {
-  const {} = props;
-
+export const CardBasket = () => {
   return (
     <>
       <article className={styles.cardBasket}>

@@ -14,7 +14,7 @@ type TCardModalProps = {
 export const CardModal = (props: TCardModalProps) => {
   const { title, price, category, image, id, description } = props;
 
-  const variatn = categorySkills[category];
+  const variant = categorySkills[category];
 
   return (
     <article className={styles.card}>
@@ -22,7 +22,7 @@ export const CardModal = (props: TCardModalProps) => {
         <img src={image} alt={description} className={styles.cardImg} />
       </div>
       <div className={styles.cardContentWrapper}>
-        <Badge variant={variatn}>{category}</Badge>
+        <Badge variant={variant}>{category}</Badge>
         <h2 className={styles.cardTitle}>{title}</h2>
         <p className={clsx(styles.cardDescription, styles.scrollbar)}>{description}</p>
         <div className={styles.buttonPriceWrapper}>

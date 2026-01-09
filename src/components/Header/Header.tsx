@@ -1,13 +1,10 @@
 import styles from "./header.module.scss";
 import { useState } from "react";
-import { CardBasket } from "../CardBasket/CardBasket.tsx";
 import { Modal } from "../Modal/Modal.tsx";
 import { Button } from "../Button/Button.tsx";
 import { Basket } from "../Basket/Basket.tsx";
 
-type Props = {};
-export const Header = (props: Props) => {
-  const {} = props;
+export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
