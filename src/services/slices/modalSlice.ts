@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type TInitialState = {
-  selectedCard: string | null;
+  selectedCard: string;
+  isOpen: boolean;
 };
 
 const initialState: TInitialState = {
-  selectedCard: null,
+  selectedCard: "",
+  isOpen: false,
 };
 
 export const modalSlice = createSlice({
@@ -14,8 +16,12 @@ export const modalSlice = createSlice({
   reducers: {
     openSelectedCard(state, action) {
       state.selectedCard = action.payload;
+      state.isOpen = true;
+    },
+    closeSelectedCard(state) {
+      state.isOpen = false;
     },
   },
 });
 
-export const { openSelectedCard } = modalSlice.actions;
+export const { openSelectedCard, closeSelectedCard } = modalSlice.actions;

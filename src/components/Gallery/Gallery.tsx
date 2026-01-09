@@ -5,8 +5,6 @@ import { useSelector } from "../../services/store.ts";
 export const Gallery = () => {
   const ids = useSelector((state) => state.products.ids);
 
-  console.log("open this:", open);
-
   return (
     <>
       <section className={styles.container}>
