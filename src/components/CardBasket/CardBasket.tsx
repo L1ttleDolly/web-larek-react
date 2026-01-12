@@ -13,8 +13,6 @@ export const CardBasket = (props: TProps) => {
   const dispatch = useDispatch();
   const products: TProduct = useSelector((state) => state.products.products[id]);
 
-  /*console.log("products", products);*/
-
   const handleDeleteProduct = () => {
     dispatch(deleteItem(id));
   };
@@ -25,9 +23,7 @@ export const CardBasket = (props: TProps) => {
         <span className={styles.cardIndex}>1</span>
         <h2 className={styles.cardTitle}>{products.title}</h2> {/*сделать чтоб при ховере писалось полное назвние*/}
         <span className={styles.cardPrice}>{products.price} синапсов</span>
-        <Button className={styles.deleteButton} onClick={handleDeleteProduct}>
-          X
-        </Button>
+        <Button className={styles.deleteButton} onClick={handleDeleteProduct}></Button>
       </article>
     </>
   );

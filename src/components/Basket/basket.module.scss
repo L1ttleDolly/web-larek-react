@@ -1,5 +1,4 @@
 .basketContainer {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +8,7 @@
   padding: 25px;
 
   .basketTitle {
-
+    font-size: 18px;
   }
 
   .basketSubTitle {
@@ -17,7 +16,7 @@
   }
 
   .cardsContainer {
-
+    width: 100%;
   }
 
 }
