@@ -2,7 +2,7 @@
   width: 515px;
   height: 37px;
   border: 1px solid black;
-  border-radius: 12px;
+  border-radius: var(--border-radius-primary);
 
   &::placeholder {
     color: var(--disabled-color);

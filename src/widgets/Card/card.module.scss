@@ -2,7 +2,7 @@
   background-color: var( --primary-color);
   width: 324px;
   height: 450px;
-  border-radius: 15px;
+  border-radius: var(--border-radius-secondary);
   padding: 25px;
   display: flex;
   flex-direction: column;
