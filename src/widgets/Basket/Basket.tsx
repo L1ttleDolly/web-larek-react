@@ -3,6 +3,7 @@ import { Button } from "../../shared/ui/Button/Button.tsx";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { CardBasket } from "../CardBasket/CardBasket.tsx";
 import clsx from "clsx";
+import { openModal } from "../../entities/modal/model/modalSlice.ts";
 
 export const Basket = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,11 @@ export const Basket = () => {
       )}
 
       <div className={styles.buttonContainer}>
-        <Button className={styles.basketButton} type={"submit"}>
+        <Button
+          className={styles.basketButton}
+          type={"submit"}
+          onClick={() => dispatch(openModal({ type: "stepOrder" }))}
+        >
           оформить
         </Button>
         <span className={styles.basketPrice}>{price} синапсов</span>

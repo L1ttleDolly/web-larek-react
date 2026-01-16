@@ -4,8 +4,9 @@ import { Input } from "../../shared/ui/Input/Input.tsx";
 import { Button } from "../../shared/ui/Button/Button.tsx";
 import { Label } from "../../shared/ui/Label/Label.tsx";
 import { useDispatch } from "../../app/store/store.ts";
+import { openModal } from "../../entities/modal/model/modalSlice.ts";
 export const FormOrder = () => {
-  /* const dispatch = useDispatch();*/
+  const dispatch = useDispatch();
 
   return (
     <Form className={styles.form}>
@@ -23,7 +24,7 @@ export const FormOrder = () => {
       </div>
 
       <div className={styles.buttonContainer}>
-        <Button>Далее</Button>
+        <Button onClick={() => dispatch(openModal({ type: "stepContacts" }))}>Далее</Button>
         <span>Необходимо указать адрес</span>
       </div>
     </Form>

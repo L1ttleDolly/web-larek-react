@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type ModalType = "basket" | "card" | "form";
+type ModalType = "basket" | "card" | "stepOrder" | "stepContacts";
 
 type TInitialState = {
   payload: string;
