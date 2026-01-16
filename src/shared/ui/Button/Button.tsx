@@ -6,10 +6,15 @@ type TButtonProps = React.ComponentProps<"button"> & {
   children?: ReactNode;
 };
 export const Button = (props: TButtonProps) => {
-  const { children, onClick, type = "button", className } = props;
+  const { children, onClick, type = "button", className, disabled } = props;
 
   return (
-    <button className={clsx(className ? className : styles.button)} type={type} onClick={onClick}>
+    <button
+      className={clsx(disabled ? styles.disabled : className ? className : styles.button)}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

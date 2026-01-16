@@ -15,7 +15,13 @@
 
   --main-btn-color: #fff;
 
-  --disabled-color: #535353;
+  --disabled-color: rgba(199, 199, 199, 0.6);
+
+  --disabled-text: rgba(46, 46, 46,  0.7);
+
+  --border-radius-primary: 10px;
+
+  --border-radius-secondary: 15px;
 }
 
 body {
@@ -46,9 +52,9 @@ body {
 
     --main-text-color: #000;
 
-    --main-btn-color: #B0E0E6FF;
+    --main-btn-color: #fff;
 
-    --disabled-color: #535353;
+    --disabled-color: rgba(199, 199, 199, 0.6);
   }
 }
 

@@ -1,5 +1,16 @@
 .button {
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: var(--border-radius-secondary);
   background-color: var(--main-btn-color);
+
+}
+
+
+.disabled {
+  padding: 10px 20px;
+  border-radius: var(--border-radius-primary);
+  cursor: not-allowed;
+  color: var(--disabled-text);
+  background-color: var(--disabled-color);
+
 }

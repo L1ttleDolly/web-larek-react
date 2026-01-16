@@ -3,8 +3,8 @@ import { Badge } from "../../shared/ui/Badge/Badge.tsx";
 import clsx from "clsx";
 import { categorySkills } from "../../shared/types/types.ts";
 import { Button } from "../../shared/ui/Button/Button.tsx";
-import { useDispatch } from "../../app/store/store.ts";
-import { addItem, setPrice } from "../../entities/basket/model/basketSlice.ts";
+import { useDispatch, useSelector } from "../../app/store/store.ts";
+import { addItem, deleteItem } from "../../entities/basket/model/basketSlice.ts";
 
 type TCardModalProps = {
   title: string;
@@ -19,10 +19,17 @@ export const CardModal = (props: TCardModalProps) => {
   const dispatch = useDispatch();
   const variant = categorySkills[category];
 
+  const items = useSelector((state) => state.basket.items).some((item) => item === id);
+
   const handleBuyProduct = () => {
-    dispatch(addItem(id));
-    dispatch(setPrice(price));
+    if (!items) {
+      dispatch(addItem(id));
+    } else {
+      dispatch(deleteItem(id));
+    }
   };
+
+  const buttonState = price === null ? "Недоступно" : items ? "Удалить из корзины" : "Купить";
 
   return (
     <article className={styles.card}>
@@ -35,8 +42,8 @@ export const CardModal = (props: TCardModalProps) => {
         <p className={clsx(styles.cardDescription, styles.scrollbar)}>{description}</p>
         <div className={styles.buttonPriceWrapper}>
           <div className={styles.buttonContainer}>
-            <Button className={styles.button} onClick={handleBuyProduct}>
-              Купить
+            <Button className={styles.button} onClick={handleBuyProduct} disabled={price === null}>
+              {buttonState}
             </Button>
           </div>
           <span className={styles.cardPrice}>{price} синапсов</span>

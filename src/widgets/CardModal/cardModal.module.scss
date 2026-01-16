@@ -5,7 +5,7 @@
   flex-direction: row;
   align-items: center;
   column-gap: 60px;
-  border-radius: 15px;
+  border-radius: var(--border-radius-secondary);
 
 }
 
@@ -33,7 +33,7 @@
     height: 120px;
     padding: 5px;
     overflow: auto;
-    border-radius: 10px;
+    border-radius: var(--border-radius-primary);
   }
 }
 
@@ -56,7 +56,7 @@
 
   &::-webkit-scrollbar-track {
     background-color: #afcaea;
-    border-radius: 10px;
+    border-radius: var(--border-radius-primary);
   }
 }
 
@@ -72,7 +72,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 134px;
   }
 
   .cardPrice {
@@ -86,6 +85,7 @@
 .button {
   width: 100%;
   height: 44px;
-  border-radius: 12px;
+  padding: 0 30px;
+  border-radius: var(--border-radius-secondary);
   background-color: var( --main-btn-color);
 }
