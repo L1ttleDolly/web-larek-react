@@ -25,6 +25,11 @@ export const FormOrder = () => {
 
   return (
     <Form className={styles.form}>
+      <div className={styles.containerButtonBack}>
+        <Button className={styles.buttonBack} onClick={() => dispatch(setCheckoutStep({ view: "basket" }))}>
+          <span className="visuallyHidden">Назад</span>
+        </Button>
+      </div>
       <div className={styles.wrapper}>
         <div className={styles.orderTypeContainer}>
           <p className={styles.orderType}>Способ оплаты</p>
@@ -44,14 +49,19 @@ export const FormOrder = () => {
 
         <div className={styles.addressContainer}>
           <Label htmlFor="address">Адрес доставки</Label>
-          <Input id={"address"} type={"text"} placeholder={"Введите адрес"} onChange={handleInputChange} />
+          <Input
+            id={"address"}
+            type={"text"}
+            placeholder={"Введите адрес"}
+            onChange={handleInputChange}
+            value={inputValue}
+          />
         </div>
       </div>
 
       <div className={styles.buttonContainer}>
         <Button onClick={goToContactsStep}>Далее</Button>
         <span>Необходимо указать адрес</span>
-        <Button onClick={() => dispatch(setCheckoutStep({ view: "basket" }))}>Назад</Button>
       </div>
     </Form>
   );

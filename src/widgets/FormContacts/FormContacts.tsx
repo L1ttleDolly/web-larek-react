@@ -10,7 +10,12 @@ export const FormContacts = () => {
   const dispatch = useDispatch();
   return (
     <Form className={styles.form}>
-      <div className={styles.wrapper}>
+      <div className={styles.containerButtonBack}>
+        <Button className={styles.buttonBack} onClick={() => dispatch(setCheckoutStep({ step: "order" }))}>
+          <span className="visuallyHidden">Назад</span>
+        </Button>
+      </div>
+      <div className={styles.inputWrapper}>
         <div className={styles.inputContainer}>
           <Label htmlFor={"email"}>Email </Label>
           <Input id={"email"} placeholder={"Введите Email"} />
@@ -21,10 +26,10 @@ export const FormContacts = () => {
           <Input id={"tel"} placeholder={"Введите номер телефона"} />
         </div>
       </div>
+
       <div className={styles.buttonContainer}>
         <Button>Оформить</Button>
         <span>Проверьте данные!</span>
-        <Button onClick={() => dispatch(setCheckoutStep({ step: "order" }))}>Назад</Button>
       </div>
     </Form>
   );
