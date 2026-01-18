@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { TOrder } from "../../../shared/types/types.ts";
 
-type TInitialState = {};
-
 const initialState: TOrder = {
   payment: null,
   email: "",
@@ -16,13 +14,19 @@ export const orderSlice = createSlice({
   name: "order",
   initialState,
   reducers: {
-    handlePaymentMethod: (state, action) => {
-      state.payment = action.payload;
+    setPaymentMethod: (state, action) => {
+      state.payment = action.payload.payment;
     },
-    handleAddress: (state, action) => {
-      state.address = action.payload;
+    setAddress: (state, action) => {
+      state.address = action.payload.address;
+    },
+    setEmail: (state, action) => {
+      state.email = action.payload.email;
+    },
+    setPhone: (state, action) => {
+      state.phone = action.payload.phone;
     },
   },
 });
 
-export const { handlePaymentMethod, handleAddress } = orderSlice.actions;
+export const { setPaymentMethod, setAddress, setEmail, setPhone } = orderSlice.actions;
