@@ -1,6 +1,7 @@
 import styles from "./modal.module.scss";
 import { createPortal } from "react-dom";
 import { type ReactNode, useEffect, useRef } from "react";
+import { Button } from "../../shared/ui/Button/Button.tsx";
 
 type TModalProps = {
   children: ReactNode;
@@ -33,8 +34,8 @@ export const Modal = (props: TModalProps) => {
   if (!container) return null;
   return createPortal(
     <dialog ref={modalRef} onClose={onClose} className={styles.modal} onClick={handleClickOut}>
-      <button onClick={handleClickClose} className={styles.button}></button>
-      {children} {/*добавить кнопку и цену чтоб не дублировать*/}
+      <Button onClick={handleClickClose} className={styles.button}></Button>
+      {children}
     </dialog>,
     container,
   );

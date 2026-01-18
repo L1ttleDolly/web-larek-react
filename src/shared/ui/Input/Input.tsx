@@ -3,7 +3,16 @@ import * as React from "react";
 
 type TProps = React.ComponentProps<"input"> & {};
 export const Input = (props: TProps) => {
-  const { type = "text", placeholder, id, onChange } = props;
+  const { type = "text", placeholder, id, onChange, value } = props;
 
-  return <input id={id} type={type} className={styles.input} placeholder={placeholder} onChange={onChange}></input>;
+  return (
+    <input
+      id={id}
+      type={type}
+      className={styles.input}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+    ></input>
+  );
 };
