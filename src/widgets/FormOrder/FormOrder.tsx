@@ -5,7 +5,7 @@ import { Button } from "../../shared/ui/Button/Button.tsx";
 import { Label } from "../../shared/ui/Label/Label.tsx";
 import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { setCheckoutStep } from "../../entities/modal/model/modalSlice.ts";
-import { handleAddress, handlePaymentMethod } from "../../entities/order/model/orderSlice.ts";
+import { setPaymentMethod, setAddress } from "../../entities/order/model/orderSlice.ts";
 import { type ChangeEvent, useState } from "react";
 
 export const FormOrder = () => {
@@ -19,7 +19,7 @@ export const FormOrder = () => {
   };
 
   const goToContactsStep = () => {
-    dispatch(handleAddress(inputValue));
+    dispatch(setAddress({ address: inputValue }));
     dispatch(setCheckoutStep({ step: "contacts" }));
   };
 
@@ -35,13 +35,13 @@ export const FormOrder = () => {
           <p className={styles.orderType}>Способ оплаты</p>
           <Button
             className={methodType === "online" ? styles.activeButton : undefined}
-            onClick={() => dispatch(handlePaymentMethod("online"))}
+            onClick={() => dispatch(setPaymentMethod({ payment: "online" }))}
           >
             Онлайн
           </Button>
           <Button
             className={methodType === "cash" ? styles.activeButton : undefined}
-            onClick={() => dispatch(handlePaymentMethod("cash"))}
+            onClick={() => dispatch(setPaymentMethod({ payment: "cash" }))}
           >
             При получении
           </Button>
@@ -53,8 +53,8 @@ export const FormOrder = () => {
             id={"address"}
             type={"text"}
             placeholder={"Введите адрес"}
-            onChange={handleInputChange}
             value={inputValue}
+            onChange={handleInputChange}
           />
         </div>
       </div>

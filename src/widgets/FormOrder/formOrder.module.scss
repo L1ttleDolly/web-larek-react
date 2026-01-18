@@ -57,10 +57,9 @@
 }
 
 .activeButton {
-  border: 3px solid plum;
+  border: 3px solid #38c0ff;
   border-radius: var(--border-radius-secondary);
-  background-color: #3f5c83;
-
+  background-color: var(--main-btn-color);
 }
 
 .buttonBack {
