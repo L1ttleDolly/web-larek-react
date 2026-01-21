@@ -16,10 +16,12 @@ export const basketSlice = createSlice({
       state.items.push(action.payload);
     },
 
-    deleteItem(state, action) {
+    deleteItem: (state, action) => {
       state.items = state.items.filter((item) => item !== action.payload);
     },
+
+    clearBasket: () => initialState,
   },
 });
 
-export const { addItem, deleteItem } = basketSlice.actions;
+export const { addItem, deleteItem, clearBasket } = basketSlice.actions;
