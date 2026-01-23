@@ -3,27 +3,39 @@ import { Form } from "../../shared/ui/Form/Form.tsx";
 import { Input } from "../../shared/ui/Input/Input.tsx";
 import { Button } from "../../shared/ui/Button/Button.tsx";
 import { Label } from "../../shared/ui/Label/Label.tsx";
-import { useDispatch } from "../../app/store/store.ts";
+import { useDispatch, useSelector } from "../../app/store/store.ts";
 import { setCheckoutStep } from "../../entities/modal/model/modalSlice.ts";
 import { setPaymentMethod, setAddress } from "../../entities/order/model/orderSlice.ts";
 import { type ChangeEvent, useState } from "react";
+import { orderSchema } from "../../shared/validation/order.schema.ts";
+import { treeifyError } from "zod";
 
 export const FormOrder = () => {
   const dispatch = useDispatch();
+  const [isValid, setIsValid] = useState(false);
+  const payment = useSelector((state) => state.order.payment);
 
-  const [formValues, setFormValues] = useState({
-    address: "",
-    payment: "",
-  });
+  const [formValues, setFormValues] = useState("");
 
-  const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    const value = evt.target.value;
-    setFormValues((prev) => ({ ...prev, address: value }));
+  const [error, setError] = useState("");
+
+  const validate = () => {
+    const result = orderSchema.safeParse({ address: formValues, payment: payment });
+    const errors = result.success ? undefined : treeifyError(result.error);
+
+    setIsValid(result.success);
+    setError(errors?.properties?.address?.errors[0] || errors?.properties?.payment?.errors[0]);
   };
 
   const goToContactsStep = () => {
-    dispatch(setAddress({ address: formValues.address }));
+    dispatch(setAddress({ address: formValues }));
     dispatch(setCheckoutStep({ step: "contacts" }));
+  };
+
+  const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    const value = evt.target.value;
+    setFormValues(value);
+    validate();
   };
 
   return (
@@ -36,18 +48,6 @@ export const FormOrder = () => {
       <div className={styles.wrapper}>
         <div className={styles.orderTypeContainer}>
           <p className={styles.orderType}>Способ оплаты</p>
-
-          <label htmlFor="cash" className={styles.radioLabel}>
-            <span>При получении</span>
-            <input
-              type={"radio"}
-              name={"payment"}
-              id={"cash"}
-              className={"visuallyHidden"}
-              onChange={() => dispatch(setPaymentMethod({ payment: "cash" }))}
-            />
-          </label>
-
           <label htmlFor="online" className={styles.radioLabel}>
             <span>Онлайн</span>
             <input
@@ -55,7 +55,23 @@ export const FormOrder = () => {
               name={"payment"}
               id={"online"}
               className={"visuallyHidden"}
-              onChange={() => dispatch(setPaymentMethod({ payment: "online" }))}
+              onChange={() => {
+                dispatch(setPaymentMethod({ payment: "online" }));
+                validate();
+              }}
+            />
+          </label>
+          <label htmlFor="cash" className={styles.radioLabel}>
+            <span>При получении</span>
+            <input
+              type={"radio"}
+              name={"payment"}
+              id={"cash"}
+              className={"visuallyHidden"}
+              onChange={() => {
+                dispatch(setPaymentMethod({ payment: "cash" }));
+                validate();
+              }}
             />
           </label>
         </div>
@@ -68,7 +84,7 @@ export const FormOrder = () => {
             id={"address"}
             type={"text"}
             placeholder={"Введите адрес"}
-            value={formValues.address}
+            value={formValues}
             onChange={handleInputChange}
             required
           />
@@ -76,8 +92,10 @@ export const FormOrder = () => {
       </div>
 
       <div className={styles.buttonContainer}>
-        <Button onClick={goToContactsStep}>Далее</Button>
-        <span></span>
+        <Button onClick={goToContactsStep} disabled={!isValid}>
+          Далее
+        </Button>
+        <span>{error}</span>
       </div>
     </Form>
   );
