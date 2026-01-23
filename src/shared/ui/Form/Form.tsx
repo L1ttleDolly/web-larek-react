@@ -5,7 +5,11 @@ type TProps = React.ComponentProps<"form"> & {
   children: ReactNode;
 };
 export const Form = (props: TProps) => {
-  const { children, className } = props;
+  const { children, className, onChange } = props;
 
-  return <form className={className}>{children}</form>;
+  return (
+    <form className={className} onChange={onChange}>
+      {children}
+    </form>
+  );
 };
