@@ -1,5 +1,6 @@
 import styles from "./form.module.scss";
 import type { ReactNode } from "react";
+import clsx from "clsx";
 
 type TProps = React.ComponentProps<"form"> & {
   children: ReactNode;
@@ -8,7 +9,7 @@ export const Form = (props: TProps) => {
   const { children, className, onChange } = props;
 
   return (
-    <form className={className} onChange={onChange}>
+    <form className={clsx(className ? className : styles.form)} onChange={onChange}>
       {children}
     </form>
   );

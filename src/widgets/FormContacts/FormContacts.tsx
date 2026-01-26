@@ -45,7 +45,7 @@ export const FormContacts = () => {
   };
 
   return (
-    <Form className={styles.form}>
+    <Form>
       <div className={styles.containerButtonBack}>
         <Button className={styles.buttonBack} onClick={() => dispatch(setCheckoutStep({ step: "order" }))}>
           <span className="visuallyHidden">Назад</span>

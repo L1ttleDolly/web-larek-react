@@ -1,12 +1,32 @@
-.form {
-  width: 100%;
-  height: 100%;
+.buttonBack {
+  width: 43px;
+  height: 43px;
+  background-image: url("../../shared/assets/images/icon/testt.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  fill: var(--main-btn-color);
+  color: #fff;
+
+}
+
+.wrapperButton {
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+
+.orderTypeContainer {
   display: grid;
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: 43px 200px max-content;
-  align-items: center;
-  column-gap: 5px;
-  row-gap: 5px;
+  grid-template-columns: 165px 165px;
+  column-gap: 10px;
+
+  .orderType {
+    grid-column: span 3;
+    padding-bottom: 10px;
+
+  }
 }
 
 .radioLabel {
@@ -25,32 +45,9 @@
   }
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 25px;
-  grid-column: 2 / -2;
-  grid-row: 2;
-}
-
-
-.orderTypeContainer {
-  display: grid;
-  grid-template-columns: 165px 165px;
-  column-gap: 10px;
-
-  .orderType {
-    grid-column: span 3;
-    padding-bottom: 10px;
-
-  }
-}
-
 .addressContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   row-gap: 10px;
 
 }
@@ -60,19 +57,6 @@
   grid-template-columns: 135px max-content;
   align-items: center;
   column-gap: 30px;
-  grid-column: 1 / -1;
   padding-top: 30px;
-
 }
 
-.buttonBack {
-  width: 43px;
-  height: 43px;
-  background-image: url("../../shared/assets/images/icon/testt.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  fill: var(--main-btn-color);
-  color: #fff;
-
-}
