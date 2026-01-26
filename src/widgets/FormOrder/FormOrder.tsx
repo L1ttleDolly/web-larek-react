@@ -43,13 +43,11 @@ export const FormOrder = () => {
   };
 
   return (
-    <Form className={styles.form}>
-      <div className={styles.containerButtonBack}>
-        <Button className={styles.buttonBack} onClick={() => dispatch(setCheckoutStep({ view: "basket" }))}>
-          <span className="visuallyHidden">Назад</span>
-        </Button>
-      </div>
-      <div className={styles.wrapper}>
+    <Form>
+      <Button className={styles.buttonBack} onClick={() => dispatch(setCheckoutStep({ view: "basket" }))}>
+        <span className="visuallyHidden">Назад</span>
+      </Button>
+      <div className={styles.wrapperButton}>
         <div className={styles.orderTypeContainer}>
           <p className={styles.orderType}>Способ оплаты</p>
           <label htmlFor="online" className={styles.radioLabel}>
@@ -85,6 +83,7 @@ export const FormOrder = () => {
             Адрес доставки <span aria-hidden>*</span>
           </Label>
           <Input
+            autoComplete={"on"}
             id={"address"}
             type={"text"}
             placeholder={"Введите адрес"}
