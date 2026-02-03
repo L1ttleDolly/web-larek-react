@@ -7,7 +7,6 @@ import { Input } from "../../../../shared/ui/Input/Input.tsx";
 export const ThemeToggle = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.Theme.theme);
-  console.log(theme);
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const updateTheme = !e.target.checked ? "dark" : "light";
     dispatch(setTheme(updateTheme));
