@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
@@ -19,8 +19,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
       "@app": path.resolve(__dirname, "./src/app"),
       "@store": path.resolve(__dirname, "./src/store"),
-      "@mixins": path.resolve(__dirname, "./src/styles/mixins"),
-      "@styles": path.resolve(__dirname, "./src/styles"),
+      "@mixins": path.resolve(__dirname, "./src/app/styles/mixins"),
+      "@styles": path.resolve(__dirname, "./src/app/styles"),
     },
   },
-})
+});

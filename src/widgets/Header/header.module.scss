@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+
+  padding: 25px 60px;
+  background-color: var(--primary-color);
+}
+
+.wrapperContent {
+  margin: 0 auto;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.basketCount {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    bottom: 37px;
+    left: 35px;
+    background-color: $category1;
+    border-radius: 50%;
+    padding: 1.5px;
+}
+
+
+
+

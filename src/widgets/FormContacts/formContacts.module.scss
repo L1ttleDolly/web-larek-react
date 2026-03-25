@@ -1,0 +1,19 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: grid;
+  grid-template-columns: 135px 1fr;
+  align-items: center;
+  column-gap: 30px;
+  padding-top: 30px;
+}

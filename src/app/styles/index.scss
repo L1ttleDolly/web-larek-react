@@ -1,0 +1,115 @@
+@use "../../shared/vendor/garamond";
+@use "../../shared/vendor/glyphter";
+@use "../../shared/vendor/ys-text";
+@use "../../shared/vendor/normalize.css";
+
+@use "variables" as *;
+@use "reset" as *;
+
+:root {
+  --main-bg-color: #76a4e4;
+
+  --primary-color: #375075;
+
+  --main-text-color: #000;
+
+  --main-btn-color: #fff;
+
+  --disabled-color: rgba(199, 199, 199, 0.6);
+
+  --disabled-text: rgba(46, 46, 46,  0.7);
+
+  --border-radius-primary: 10px;
+
+  --border-radius-secondary: 15px;
+}
+
+body {
+  font-family: "YS Text", sans-serif;
+  margin: 0 auto;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var( --main-bg-color);
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+html[data-theme="dark"] {
+
+
+  --main-bg-color: #0F2137;
+
+  --primary-color: #060C14;
+
+  --main-text-color: #fff ;
+
+  --main-btn-color: #e6d6e8;
+
+  --disabled-color: rgba(159, 159, 159, 0.53);
+
+
+}
+
+html[data-theme="light"] {
+  --main-bg-color: #b8d5ff;
+
+  --primary-color: #95b7e4;
+
+  --main-text-color: #000;
+
+  --main-btn-color: #fff;
+
+  --disabled-color: rgba(199, 199, 199, 0.6);
+}
+
+/*@media (prefers-color-scheme: light) {
+  :root {
+    --main-bg-color: #b8d5ff;
+
+    --primary-color: #95b7e4;
+
+    --main-text-color: #000;
+
+    --main-btn-color: #fff;
+
+    --disabled-color: rgba(199, 199, 199, 0.6);
+  }
+}
+
+.darkLayout {
+  --main-bg-color: #0F2137;
+
+  --primary-color: #060C14;
+
+  --main-text-color: #fff ;
+
+  --main-btn-color: #e6d6e8;
+
+  --disabled-color: rgba(159, 159, 159, 0.53);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+    --main-bg-color: #0F2137;
+
+    --primary-color: #060C14;
+
+    --main-text-color: #fff ;
+
+    --main-btn-color: #e6d6e8;
+
+    --disabled-color: rgba(159, 159, 159, 0.53);
+
+  }
+}*/
+

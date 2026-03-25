@@ -1,0 +1,40 @@
+.cardBasket{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--main-text-color);
+
+}
+
+.cardIndex {
+  background-color: #7098d1;
+  padding: 5px 11px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.cardTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 260px;
+
+}
+
+.cardPrice {
+  width: 135px;
+}
+
+/*.deleteButton {
+  background-image: url("../../shared/assets/images/icon/trash.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  fill: var(--main-text-color);
+  width: 26px;
+  height: 30px;
+}*/
+

@@ -1,0 +1,11 @@
+.container {
+  width: 770px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 24px;
+  padding: 50px 0;
+}

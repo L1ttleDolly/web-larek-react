@@ -1,0 +1,58 @@
+.basketContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 30px;
+
+  .basketTitle {
+    font-size: 18px;
+  }
+
+  .basketSubTitle {
+    color: var(--disabled-text);
+  }
+
+  .cardsContainer {
+    max-height: 153px;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(90, 138, 193, 0.25);
+    border-radius: var(--border-radius-secondary);
+  }
+}
+
+.scrollbar {
+  scrollbar-gutter: stable;
+
+  &::-webkit-scrollbar {
+    inline-size: 5px;
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #5F8CC7;
+    border-radius: 5px;
+    height: 5px;
+    &:hover {
+      background-color: #7ba5e3;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #afcaea;
+    border-radius: var(--border-radius-secondary);
+  }
+}
+
+.buttonContainer {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+}

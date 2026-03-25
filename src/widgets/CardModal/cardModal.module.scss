@@ -1,0 +1,83 @@
+.card {
+  width: 690px;
+  background-color: var( --primary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 60px;
+  border-radius: var(--border-radius-secondary);
+  color: var(--main-text-color);
+}
+
+.cardImg {
+  width: 250px;
+  height: 250px;
+}
+
+.cardContentWrapper {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 15px;
+
+
+  .cardTitle {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 100%;
+  }
+
+  .cardDescription {
+    height: 120px;
+    padding: 5px;
+    overflow: auto;
+    border-radius: var(--border-radius-primary);
+  }
+}
+
+.scrollbar {
+  scrollbar-gutter: stable;
+
+  &::-webkit-scrollbar {
+    inline-size: 5px;
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #5F8CC7;
+    border-radius: 5px;
+    height: 5px;
+    &:hover {
+      background-color: #7ba5e3;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #afcaea;
+    border-radius: var(--border-radius-primary);
+  }
+}
+
+.buttonPriceWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 24px;
+  color: #000;
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cardPrice {
+    font-weight: 400;
+    font-size: 17px;
+    color: var(--main-text-color);
+  }
+}
